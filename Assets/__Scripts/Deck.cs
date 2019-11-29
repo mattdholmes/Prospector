@@ -27,17 +27,17 @@ public class Deck : MonoBehaviour {
 	[Header("Set Dynamically")]
 
 	public PT_XMLReader					xmlr;
-	// add from p 569
-	public List<string>					cardNames;
-	public List<Card>					cards;
-	public List<Decorator>				decorators;
-	public List<CardDefinition>			cardDefs;
-	public Transform					deckAnchor;
-	public Dictionary<string, Sprite>	dictSuits;
+
+    public List<string> cardNames;
+    public List<Card> cards;
+    public List<Decorator> decorators;
+    public List<CardDefinition> cardDefs;
+    public Transform deckAnchor;
+    public Dictionary<string, Sprite> dictSuits;
 
 
-	// called by Prospector when it is ready
-	public void InitDeck(string deckXMLText) {
+    // called by Prospector when it is ready
+    public void InitDeck(string deckXMLText) {
 		// from page 576
 		if( GameObject.Find("_Deck") == null) {
 			GameObject anchorGO = new GameObject("_Deck");
@@ -72,11 +72,11 @@ public class Deck : MonoBehaviour {
 		s += " x=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("x");
 		s += " y=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("y");
 		s += " scale=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("scale");
-		print (s);
-		
-		//Read decorators for all cards
-		// these are the small numbers/suits in the corners
-		decorators = new List<Decorator>();
+        //print (s);
+
+        //Read decorators for all cards
+        // these are the small numbers/suits in the corners
+        decorators = new List<Decorator>();
 		// grab all decorators from the XML file
 		PT_XMLHashList xDecos = xmlr.xml["xml"][0]["decorator"];
 		Decorator deco;
